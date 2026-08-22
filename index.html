@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>N12M — Embedded Voice of Customer</title>
+<title>N12M: Embedded Voice of Customer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -136,6 +136,7 @@
     display:flex;align-items:center;justify-content:center;text-align:center;
   }
   .photo-placeholder span{font-family:var(--font-mono);font-size:12px;color:var(--text-light-muted);padding:1rem;}
+  .about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--panel-line);}
   .about-copy h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text-light);margin-bottom:1.4rem;}
   .about-copy p{color:var(--text-light-muted);line-height:1.75;font-size:1.02rem;margin-bottom:1.2rem;max-width:52ch;}
   .about-copy .btn{margin-top:.6rem;}
@@ -171,6 +172,8 @@
   .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;margin-top:3.5rem;}
   @media (max-width:960px){ .price-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:600px){ .price-grid{grid-template-columns:1fr;} }
+  .price-grid-3{grid-template-columns:repeat(3,1fr);}
+  @media (max-width:820px){ .price-grid-3{grid-template-columns:1fr;} }
   .price-card{border:1px solid var(--paper-line);background:#F6F6F1;padding:2.1rem 1.8rem;display:flex;flex-direction:column;}
   .price-card.featured{border:2px solid var(--amber-dim);background:#F8F1E3;}
   .price-badge{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:1rem;}
@@ -180,7 +183,20 @@
 
   /* FOOTER CTA */
   .cta-final{text-align:center;}
-  .cta-final h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--text-light);max-width:16ch;margin:0 auto 2.2rem;}
+  .cta-final h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--text-light);max-width:16ch;margin:0 auto .8rem;}
+  .cta-sub{font-family:var(--font-mono);font-size:13px;color:var(--text-light-muted);margin:0 0 2.2rem;}
+  .email-block{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;}
+  .email-text{
+    font-family:var(--font-mono);font-size:clamp(1.1rem,2.6vw,1.6rem);color:var(--amber);
+    text-decoration:none;border-bottom:1px solid var(--amber-dim);padding-bottom:.15rem;
+  }
+  .email-text:hover{color:var(--text-light);border-color:var(--text-light);}
+  .copy-btn{
+    font-family:var(--font-mono);font-size:12.5px;color:var(--text-light);background:transparent;
+    border:1px solid var(--panel-line);padding:.55rem 1rem;border-radius:2px;cursor:pointer;
+  }
+  .copy-btn:hover{background:var(--panel);}
+  .copy-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .foot-links{display:flex;justify-content:center;gap:2.4rem;margin-top:1.4rem;font-family:var(--font-mono);font-size:12.5px;color:var(--text-light-muted);flex-wrap:wrap;}
   .foot-signature{font-family:var(--font-mono);font-size:14px;color:var(--text-light);margin-top:3rem;letter-spacing:.04em;}
   .foot-fine{text-align:center;font-family:var(--font-mono);font-size:11px;color:#5B6270;margin-top:3rem;}
@@ -208,7 +224,7 @@
 
 <section class="section dark hero">
   <h1>What is customer friction actually costing you<span class="lite">...and what should you fix in the next 12 months?</span></h1>
-  <p class="lede">N12M turns your call transcripts, tickets, emails and NPS into a quarterly baseline — with the &pound; impact attached, and the research agenda to act on before it becomes next year's problem.</p>
+  <p class="lede">N12M turns your call transcripts, tickets, emails and NPS into a quarterly baseline, with the &pound; impact attached, and the research agenda to act on before it becomes next year's problem.</p>
   <div class="hero-ctas">
     <a class="btn" href="#cta">Book a call <span aria-hidden="true">&#8599;</span></a>
     <a class="btn btn-ghost" href="#about">About me</a>
@@ -217,8 +233,9 @@
 
 <section class="section about" id="about">
   <div class="about-grid">
-    <div class="photo-placeholder" aria-hidden="true">
-      <span>Add your photo here</span>
+    <img src="hattie.png" alt="Hattie Aspinall" class="about-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="photo-placeholder" aria-hidden="true" style="display:none;">
+      <span>Add your photo here (save as hattie.png next to this file)</span>
     </div>
     <div class="about-copy">
       <h2>About me</h2>
@@ -294,11 +311,11 @@
   <div class="two-col">
     <div>
       <h2>Your customers are already telling you. It's just scattered across five systems.</h2>
-      <p>Calls, tickets, emails, reviews and NPS scores all hold the same story in fragments — but almost nobody has the time to join them up, and fewer still can say what any of it is costing the business. Large enterprises can usually afford the analyst team to make sense of a CX platform. Most other businesses own the tooling and still can't operate it.</p>
+      <p>Calls, tickets, emails, reviews and NPS scores all hold the same story in fragments, but almost nobody has the time to join them up, and fewer still can say what any of it is costing the business. Large enterprises can usually afford the analyst team to make sense of a CX platform. Most other businesses own the tooling and still can't operate it.</p>
     </div>
     <div class="stat-card">
       <div><span class="big">46%</span><span class="small">&nbsp;/&nbsp;88%</span></div>
-      <p>Mid-market CX platform adoption sits near 46%, against 88%+ for large enterprise &mdash; the tooling gap is smaller than the interpretation gap.</p>
+      <p>Mid-market CX platform adoption sits near 46%, against 88%+ for large enterprise. The tooling gap is smaller than the interpretation gap.</p>
     </div>
   </div>
 </section>
@@ -310,60 +327,31 @@
 </div>
 
 <section class="section paper-alt" id="cycle">
-  <div class="two-col" style="align-items:start;">
-    <div>
-      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">My process</h2>
-      <p style="color:var(--text-dark-muted);line-height:1.7;margin:1.2rem 0 1.8rem;">One cycle to reveal the insights that cause friction, and the plan that converts it into momentum.</p>
-      <a class="btn btn-ghost-paper" href="#cta">Book a call</a>
+  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);max-width:26ch;">My process</h2>
+  <p style="color:var(--text-dark-muted);line-height:1.7;margin:1rem 0 1.8rem;max-width:60ch;">One cycle to reveal the insights that cause friction, and the plan that converts it into momentum.</p>
+  <a class="btn btn-ghost-paper" href="#cta">Book a call</a>
+  <div class="vignette-grid" style="margin-top:3rem;">
+    <div class="vignette">
+      <h3>Baseline: What customers are saying</h3>
+      <p>Transcripts, tickets, emails, social and NPS aggregated into one themed view, refreshed on a rolling cadence.</p>
     </div>
-    <div class="steps steps-list">
-      <div class="step">
-        <h3>Baseline: What customers are saying</h3>
-        <p>Transcripts, tickets, emails, social and NPS aggregated into one themed view, refreshed on a rolling cadence.</p>
-      </div>
-      <div class="step">
-        <h3>Impact: What it means for you</h3>
-        <p>The baseline mapped against your live strategic priorities, with an estimated &pound; cost or opportunity on the top themes.</p>
-      </div>
-      <div class="step">
-        <h3>Plan: Unblocking the future</h3>
-        <p>The specific questions the baseline can't answer, each with a recommended method &mdash; survey, interviews, or a workshop.</p>
-      </div>
+    <div class="vignette">
+      <h3>Impact: What it means for you</h3>
+      <p>The baseline mapped against your live strategic priorities, with an estimated &pound; cost or opportunity on the top themes.</p>
+    </div>
+    <div class="vignette">
+      <h3>Plan: Unblocking the future</h3>
+      <p>The specific questions the baseline can't answer, each with a recommended method: a survey, a set of interviews, or a workshop.</p>
     </div>
   </div>
   <div class="tool-aside">
-    Everything above lands in <b>Waypoint</b>, your always-on dashboard between cycles &mdash; so the baseline is something you check, not something you wait for.
+    Everything above lands in <b>Waypoint</b>, your always-on dashboard between cycles, so the baseline is something you check, not something you wait for.
   </div>
 </section>
 
 <div class="squiggle-wrap paper-alt" style="background:#F6F6F1;">
   <svg viewBox="0 0 1200 32" preserveAspectRatio="none" aria-hidden="true">
     <path class="squiggle-path sq-dim draw" d="M0,16 C50,0 100,32 150,16 C200,0 250,32 300,16 C350,0 400,32 450,16 C500,0 550,32 600,16 C650,0 700,32 750,16 C800,0 850,32 900,16 C950,0 1000,32 1050,16 C1100,0 1150,32 1200,16" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/>
-  </svg>
-</div>
-
-<section class="section">
-  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);max-width:26ch;">Illustrative — the kind of thing a baseline surfaces</h2>
-  <div class="vignette-grid">
-    <div class="vignette">
-      <h3>The sentence nobody had read twice</h3>
-      <p>One line, repeated across dozens of transcripts, pointing at a single screen in a booking flow. Nobody had connected it to a seven-figure EBIT number until the baseline did.</p>
-    </div>
-    <div class="vignette">
-      <h3>Built the map from a single pin</h3>
-      <p>One feedback source, no journey map, no shared view of the customer. Eight quarters later, it's a standing item on the leadership OKR review.</p>
-    </div>
-    <div class="vignette">
-      <h3>The question worth asking twice</h3>
-      <p>The baseline flagged a theme nobody could explain from the data alone. The research agenda turned it into a two-week study &mdash; and a roadmap decision.</p>
-    </div>
-  </div>
-  <p class="vignette-note">Illustrative scenarios based on the kind of pattern a baseline cycle typically surfaces, not specific client engagements.</p>
-</section>
-
-<div class="squiggle-wrap" style="background:var(--paper);">
-  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" aria-hidden="true">
-    <path class="squiggle-path sq-amber draw" d="M0,16 C50,32 100,0 150,16 C200,32 250,0 300,16 C350,32 400,0 450,16 C500,32 550,0 600,16 C650,32 700,0 750,16 C800,32 850,0 900,16 C950,32 1000,0 1050,16 C1100,32 1150,0 1200,16" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/>
   </svg>
 </div>
 
@@ -385,41 +373,35 @@
 </section>
 
 <section class="section" id="pricing">
-  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">Four ways to engage me</h2>
-  <div class="price-grid">
+  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">Three ways to engage me</h2>
+  <div class="price-grid price-grid-3">
     <div class="price-card">
       <div class="price-badge">Entry offer</div>
       <h3>Value diagnostic</h3>
-      <div class="price">&pound;4,000&ndash;&pound;7,000</div>
       <p>A 3&ndash;4 week review of your existing data with an initial &pound;-impact estimate on your top friction themes.</p>
     </div>
     <div class="price-card">
       <div class="price-badge">Tier 1</div>
       <h3>Signal</h3>
-      <div class="price">&pound;1,200&ndash;&pound;2,000 /mo</div>
       <p>An always-on Waypoint dashboard, refreshed quarterly, with light-touch commentary.</p>
     </div>
     <div class="price-card featured">
       <div class="price-badge">Core offer</div>
       <h3>Signal + story</h3>
-      <div class="price">&pound;3,500&ndash;&pound;6,000 /mo</div>
-      <p>The full cycle &mdash; dashboard, strategic alignment, &pound;-impact modelling, and a prioritised research agenda.</p>
-    </div>
-    <div class="price-card">
-      <div class="price-badge">Tier 3</div>
-      <h3>Embedded partner</h3>
-      <div class="price">From &pound;10,000 /qtr</div>
-      <p>Everything in Signal + story, plus commissioned research, workshops, and quarterly board presentation.</p>
+      <p>The full cycle: dashboard, strategic alignment, &pound;-impact modelling, and a prioritised research agenda.</p>
     </div>
   </div>
 </section>
 
 <section class="section dark cta-final" id="cta">
   <h2>Let's work together</h2>
-  <a class="btn" href="mailto:hattie@n12m.com">Work with me <span aria-hidden="true">&#8599;</span></a>
-  <div class="foot-signature">N12M &mdash; By Hattie Aspinall</div>
+  <p class="cta-sub">Click to email, or copy the address below.</p>
+  <div class="email-block">
+    <a href="mailto:hattie@n12m.com" class="email-text">hattie@n12m.com</a>
+    <button type="button" class="copy-btn" onclick="copyEmail(this)">Copy email</button>
+  </div>
+  <div class="foot-signature">N12M, by Hattie Aspinall</div>
   <div class="foot-links">
-    <span>hattie@n12m.com</span>
     <span>linkedin.com/in/hattyaspinall</span>
     <span>Lincolnshire, UK</span>
   </div>
@@ -427,6 +409,29 @@
 </section>
 
 <script>
+  function copyEmail(btn){
+    var email = 'hattie@n12m.com';
+    var reset = function(){ btn.textContent = 'Copy email'; };
+    function fallback(){
+      var tmp = document.createElement('textarea');
+      tmp.value = email;
+      tmp.style.position = 'fixed';
+      tmp.style.opacity = '0';
+      document.body.appendChild(tmp);
+      tmp.focus();
+      tmp.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      document.body.removeChild(tmp);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).catch(fallback);
+    } else {
+      fallback();
+    }
+    btn.textContent = 'Copied';
+    setTimeout(reset, 1800);
+  }
+
   function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
 
   function sweepGauges(container){
